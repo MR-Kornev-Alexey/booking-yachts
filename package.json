@@ -1,4 +1,9 @@
 {
   "name": "booking-yachts",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
   "packageManager": "yarn@4.6.0"
 }
