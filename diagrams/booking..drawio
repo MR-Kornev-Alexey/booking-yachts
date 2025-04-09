@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="System Architecture" id="example">
+    <mxGraphModel dx="1250" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Client Frontend -->
+        <mxCell id="2" value="Client&#xa;Frontend" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="60" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Admin Frontend -->
+        <mxCell id="3" value="Admin&#xa;Frontend" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="60" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Logto-Client -->
+        <mxCell id="4" value="Logto-&#xa;Client" style="shape=mxgraph.security.lock;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="140" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Logto-Admin -->
+        <mxCell id="5" value="Logto-&#xa;Admin" style="shape=mxgraph.security.lock;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="140" width="60" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Access Token Arrows -->
+        <mxCell id="6" style="endArrow=block;html=1;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" style="endArrow=block;html=1;" edge="1" parent="1" source="3" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Nest.js API Gateway -->
+        <mxCell id="8" value="Nest.js&#xa;API Gateway" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="160" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows to API Gateway -->
+        <mxCell id="9" style="endArrow=block;html=1;" edge="1" parent="1" source="4" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" style="endArrow=block;html=1;" edge="1" parent="1" source="5" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Nest.js Modules (Monolith) -->
+        <mxCell id="11" value="Модули Nest.js (монолит)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="250" width="500" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Module boxes inside -->
+        <mxCell id="12" value="Auth" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+          <mxGeometry x="10" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="Yacht" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+          <mxGeometry x="100" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="Booking" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+          <mxGeometry x="190" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="Payment" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+          <mxGeometry x="280" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" value="..." style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="11">
+          <mxGeometry x="370" y="40" width="40" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow from API Gateway to Monolith -->
+        <mxCell id="17" style="endArrow=block;html=1;" edge="1" parent="1" source="8" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- PostgreSQL -->
+        <mxCell id="18" value="PostgreSQL" style="shape=cube;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="100" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Redis/Kafka -->
+        <mxCell id="19" value="Redis / Kafka (будущее)" style="shape=database;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="390" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows to Databases -->
+        <mxCell id="20" style="endArrow=block;html=1;" edge="1" parent="1" source="11" target="18">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" style="dashed=1;endArrow=block;html=1;" edge="1" parent="1" source="11" target="19">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
